@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Text winText;
     void Start()
     {
+        AudioManager.instance.PlayMusic("muzyka");
         rb2d = GetComponent<Rigidbody2D>();
         licznik = 0;
     }
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PickUp"))
         {
+            AudioManager.instance.PlaySFX("pickup");
             Destroy(collision.gameObject);
             licznik++;
             UpdateScore();
